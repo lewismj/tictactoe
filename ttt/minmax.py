@@ -11,6 +11,7 @@ from .limtis import Limits
 def negamax(depth: int, alpha: int, beta: int, board_state: Board) -> [Square, int]:
     # check terminal states.
 
+    # This section could be a separate 'evaluate_state' function.
     if board_state.has_won(board_state.player_1):
         # this 'if' illustrates the algorithm, but do we really need it?
         # e.g. think about this if writing code to output the game tree.
@@ -19,8 +20,12 @@ def negamax(depth: int, alpha: int, beta: int, board_state: Board) -> [Square, i
     if board_state.has_won(board_state.player_2):
         return None, -1000 * max(1, depth)
 
+    # if depth is zero and neither side has won, it must be a draw,
+    # return zero.
     if depth == 0:
         return None, 0
+
+    # ---- end of section.
 
     best_so_far = (None, Limits.Min.value)
     moves = board_state.generate_moves()
