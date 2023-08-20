@@ -54,7 +54,7 @@ Read Graham Hutton's 'Programming in Haskell' (2nd edition) book,
 he has a very basic tic-tac-toe implementation.
 
 - Convert it to using numerical scoring and implement MCTS.
-- (Advanced) Think about chaning it, using data structure with Zipper
+- (Advanced) Think about changing the book implementation, using data structure with Zipper
   and State Monad.
 
 
