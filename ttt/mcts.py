@@ -58,6 +58,7 @@ def rollout(board: Board) -> float:
         possible_states = board.generate_states()
         if len(possible_states) == 0:
             break
+
         board = choice(possible_states)
 
     if board.has_won(Player.NAUGHTS):
@@ -83,7 +84,7 @@ def get_best_move(node, exploration_constant):
         player = 1 if child.board.player_2 == Player.NAUGHTS else -1
 
         # UCB1.
-        score = player * child.score / child.visits + exploration_constant * sqrt(log(node.visits / child.visits))
+        score = player * child.score / child.visits + exploration_constant * sqrt(log(node.visits) / child.visits)
 
         if score > best_so_far:
             best_so_far = score
